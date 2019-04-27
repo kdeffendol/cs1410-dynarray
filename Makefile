@@ -4,4 +4,7 @@ CXXFLAGS+=-g -Wall
 LDLIBS+=-lstdc++
 
 # Tell make which files go into the program
-main: main.o dynarray.o
+main: main.o
+
+main.o: main.cpp dynarray.h
+
