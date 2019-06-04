@@ -1,3 +1,14 @@
+/**
+ * header file
+ * CS 1410
+ * Project 9
+ * Author: Kelsey Deffendol
+ * Date last modified: June 2019
+ * 
+ * Purpose: To create a DynArray class using a template
+ */
+
+
 #include <iostream>
 using namespace std;
 
