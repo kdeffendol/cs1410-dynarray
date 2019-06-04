@@ -29,6 +29,10 @@ class DynArray {
 
 };
 
+
+/**
+ * constructor creating a new dynarray with the default capacity and size.
+ */
 template<typename T>
 DynArray<T>::DynArray() {
     //data = nullptr;
@@ -37,6 +41,10 @@ DynArray<T>::DynArray() {
     data = new T[cap];
 }
 
+/**
+ * constructor creating a new dynarray with capacity inputted by user and size.
+ * @param n: capacity of the dynamic array.
+ */
 template<typename T>
 DynArray<T>::DynArray(int n) {
     cap = n;
@@ -44,7 +52,10 @@ DynArray<T>::DynArray(int n) {
     data = new T[cap];
 }
 
-//new
+/**
+ * copy constructor - copies data into a new array
+ * @param origObject - original dynamic array 
+ */
 template<typename T>
 DynArray<T>::DynArray(const DynArray<T>& origObject) {
     cout << "copy" << endl;
@@ -59,7 +70,10 @@ DynArray<T>::DynArray(const DynArray<T>& origObject) {
     }
 }
 
-//new
+/**
+ * copy assignment operator
+ * @param origObject - original dynamic array
+ */
 template<typename T>
 DynArray<T>& DynArray<T>::operator=(const DynArray<T>& origObject) {
     cout << "assign" << endl;
@@ -79,23 +93,37 @@ DynArray<T>& DynArray<T>::operator=(const DynArray<T>& origObject) {
     return *this;
 }
 
-//deconstructor
+/**
+ * deconstructor
+ */
 template<typename T>
 DynArray<T>::~DynArray() {
     delete [] data;
     data = nullptr;
 }
 
+/**
+ * getter function for size
+ * @return size of dyn array
+ */
 template<typename T>
 int DynArray<T>::size() const {
     return _size;
 }
 
+/**
+ * getter function for capacity
+ * @return capacity of the dyn array
+ */
 template<typename T>
 int DynArray<T>::capacity() const {
     return cap;
 }
 
+/**
+ * changes dyn array to default size and capacity and removes all elements
+ * @return new empty dyn array with default sizing
+ */
 template<typename T>
 void DynArray<T>::clear() {
     _size = 0;
@@ -104,6 +132,10 @@ void DynArray<T>::clear() {
     data = new T[cap];
 }
 
+/**
+ * stores the next value in the array, increments size if needed
+ * @param n - new value to be set into array
+ */
 template<typename T>
 void DynArray<T>::push_back(const T& n) {
     //store next value
@@ -124,11 +156,19 @@ void DynArray<T>::push_back(const T& n) {
     _size++;
 }
 
+/**
+ * moves size one back to delete the last element in the array
+ */
 template<typename T>
 void DynArray<T>::pop_back() {
     _size--;
 }
 
+/**
+ * returns the indicated data point at the given index number
+ * @param index - index of item being returned
+ * @return item and given index
+ */
 template<typename T>
 T& DynArray<T>::at(int index) const {
     if (index >= _size || index < 0) {
@@ -137,6 +177,10 @@ T& DynArray<T>::at(int index) const {
     return data[index];
 }
 
+/**
+ * returns last item of the array
+ * @return the last item in array
+ */
 template<typename T>
 T& DynArray<T>::back() {
     if (size() == 0) {
@@ -145,6 +189,10 @@ T& DynArray<T>::back() {
     return data[size()-1];
 }
 
+/**
+ * returns the first item in the array
+ * @return the first item in array
+ */
 template<typename T>
 T& DynArray<T>::front() {
     if (size() == 0) {
